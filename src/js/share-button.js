@@ -157,6 +157,9 @@
         } else {
             url = location.href;
         }
+        if(typeof addthis_share === 'object' && addthis_share.url){
+            url = addthis_share.url;
+        }
         return url;
     }
 

@@ -171,9 +171,11 @@
         var share_fixed = document.querySelector('.share-fixed');
         var share_toolbox = document.querySelector('.share_button_toolbox');
         var share_hide = document.querySelectorAll('.share-hide'),l_hide = share_hide.length;
-        for (var i = 0; i < l_hide; i++) {
-            share_hide[i].classList.remove('share-hide')
-        }
+        setTimeout(function () {
+            for (var i = 0; i < l_hide; i++) {
+                share_hide[i].classList.remove('share-hide')
+            }
+        },1000);
         if (share_fixed || share_toolbox) {
             document.querySelector('.share-title').innerText = getTitle();
             document.querySelector('.share-url').innerText = getUrl();

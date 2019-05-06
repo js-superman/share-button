@@ -11,6 +11,9 @@
     to {visibility: hidden;-webkit-transform: translate3d(0, 100%, 0);transform: translate3d(0, 100%, 0);}
 }
 
+body.share-noscroll{overflow-y: hidden;}
+html.share-noscroll{overflow-y: hidden;}
+
 .share-btn ul{margin: 0;padding: 0;list-style: none}
 .share-btn a{position: relative;cursor: pointer;transition: width .15s ease-in-out;}
 .share-btn a .icon {display: inline-block;text-align: center;background-position: center;background-repeat: no-repeat;}
@@ -39,19 +42,19 @@
 .share-mob.open .share-open-bg{display: block}
 
 .share-menu * {box-sizing: border-box;}
-.share-menu {font-family: "Myriad Set Pro","Helvetica Neue","Helvetica","Lucida Grande","Arial","Verdana","sans-serif";z-index: -1;visibility: hidden;opacity: 0;transition: all .3s ease-in-out;    position: absolute;top: 0;left: 0;right: 0;bottom: 0;}
+.share-menu {font-family: "Myriad Set Pro","Helvetica Neue","Helvetica","Lucida Grande","Arial","Verdana","sans-serif";z-index: -1;visibility: hidden;opacity: 0;transition: all .3s ease-in-out;position: fixed;left: 0;top: 0;width: 100%;height: 100%;overflow-y: auto;}
 .share-menu.show{opacity: 1;z-index: 999999;visibility: visible;}
 .share-menu .title {font-size: 42px;line-height: 42px;padding: 20px;color: #fff;font-weight: 200;}
 .share-menu .share-title {font-size: 16px;color: #eeecec;font-weight: 300;}
 .share-menu .share-url {line-height: 18px;opacity: 0.6;font-weight: 200;}
-.share-shadow {background: #17181A;width: 100%;height: 100%;opacity: 0.9;position: fixed;left: 0;top: 0;z-index: 16777270}
+.share-shadow {background: #17181A;    position: fixed;left: 0;top: 0;bottom: 0;right: 0;opacity: 0.9;}
 .share-list {padding-top: 15px;}
 .share-list a {cursor: pointer;width: 24%;display: inline-table;color: #fff;margin: 10px auto;}
 .share-list a .icon {display: block;width: 75%;padding-top: 75%;background-position: center;background-repeat: no-repeat;min-width: 50px;min-height: 50px;margin: 0 auto;-moz-border-radius: 50%;-webkit-border-radius: 50%;border-radius: 50%;}
 .share-list a .text{font-size: 12px;}
-.share-closed {z-index: 16777271;background-color: #fff;background-image: url(../img/Closed-icon.svg);background-position: center;background-size: 12px;background-repeat: no-repeat;height: 30px;width: 30px;line-height: 30px;-moz-border-radius: 50%;-webkit-border-radius: 50%;border-radius: 50%;position: fixed;top: 30px;right: 30px;text-align: center;font-size: 16px;cursor: pointer;}
+.share-closed {z-index: 1;background-color: #fff;background-image: url(../img/Closed-icon.svg);background-position: center;background-size: 12px;background-repeat: no-repeat;height: 30px;width: 30px;line-height: 30px;-moz-border-radius: 50%;-webkit-border-radius: 50%;border-radius: 50%;position: fixed;top: 30px;right: 30px;text-align: center;font-size: 16px;cursor: pointer;}
 .share-closed:hover {opacity: 0.8;}
-.share-text {color: #fff;position: absolute;z-index: 16777271;left: 50%;transform: translate(-50%,0);width: 90%;max-width: 570px;text-align: center;min-height: 320px;padding-top: 10px;}
+.share-text {color: #fff;position: absolute;top: 20px;left: 50%;transform: translate(-50%,0);width: 90%;max-width: 570px;text-align: center;min-height: 320px;padding: 10px 0 80px;}
 
 .share-btn .icon{background-size: 80%;}
 .share-fb .icon {background-color: rgb(59, 89, 152);background-image: url(../img/Facebook.svg);}

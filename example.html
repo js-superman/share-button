@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-    <title>Share Button Example</title>
+    <title>Title TTTTTTT</title>
+    <meta name="description" content="XXX">
+    <meta property="og:image" content="https://apkpure.com/static/imgs/website_screen_v1.jpg" />
     <style>
         .share-hide{
             display: none;
@@ -15,9 +17,11 @@
     <div class="share-btn share-toolbox">
         <a class="share-fb" data-sharer="facebook"><span class="icon"></span></a>
         <a class="share-t" data-sharer="twitter"><span class="icon"></span></a>
-        <a class="share-vk" data-sharer="vk"><span class="icon"></span></a>
         <a class="share-reddit" data-sharer="reddit"><span class="icon"></span></a>
+        <a class="share-vk" data-sharer="vk"><span class="icon"></span></a>
+        <a class="share-whatsapp" data-sharer="whatsapp"><span class="icon"></span></a>
         <a class="share-more"><span class="icon"></span></a>
+        <span class="share-counter">123K</span>
     </div>
 </div>
 <!--web-->
@@ -34,10 +38,19 @@
                 <a class="share-vk" data-sharer="vk"><span class="icon"></span></a>
             </li>
             <li>
+                <a class="share-whatsapp" data-sharer="whatsapp"><span class="icon"></span></a>
+            </li>
+            <li>
                 <a class="share-reddit" data-sharer="reddit"><span class="icon"></span></a>
             </li>
             <li>
                 <a class="share-more"><span class="icon"></span></a>
+            </li>
+            <li>
+                <div class="share-side-counter">
+                    <div class="share-side-count">123K</div>
+                    <div class="share-side-text">SHARE</div>
+                </div>
             </li>
         </ul>
     </div>
@@ -55,10 +68,13 @@
                 <a class="share-t" data-sharer="twitter"><span class="icon"></span><span class="text">Twitter</span></a>
             </li>
             <li>
-                <a class="share-vk" data-sharer="vk"><span class="icon"></span><span class="text">Vkontakte</span></a>
+                <a class="share-reddit" data-sharer="reddit"><span class="icon"></span><span class="text">Reddit</span></a>
             </li>
             <li>
-                <a class="share-reddit" data-sharer="reddit"><span class="icon"></span><span class="text">Reddit</span></a>
+                <a class="share-whatsapp" data-sharer="whatsapp"><span class="icon"></span><span class="text">WhatsApp</span></a>
+            </li>
+            <li>
+                <a class="share-vk" data-sharer="vk"><span class="icon"></span><span class="text">Vkontakte</span></a>
             </li>
             <li>
                 <a class="share-more"><span class="icon"></span><span class="text">More</span></a>
@@ -66,27 +82,7 @@
         </ul>
     </div>
 </div>
-<!--share-more-->
-<div class="share-menu share-hide">
-    <div class="share-shadow"></div>
-    <div class="share-closed"></div>
-    <div class="share-text">
-        <div class="title">Share</div>
-        <p class="share-title"></p>
-        <p class="share-url"></p>
-        <div class="share-list">
-            <a class="share-fb" data-sharer="facebook"><span class="icon"></span><span class="text">Facebook</span></a>
-            <a class="share-t" data-sharer="twitter"><span class="icon"></span><span class="text">Twitter</span></a>
-            <a class="share-vk" data-sharer="vk"><span class="icon"></span><span class="text">Vkontakte</span></a>
-            <a class="share-reddit" data-sharer="reddit"><span class="icon"></span><span class="text">Reddit</span></a>
-            <a class="share-g" data-sharer="googleplus"><span class="icon"></span><span class="text">Google</span></a>
-            <a class="share-pinterest" data-sharer="pinterest"><span class="icon"></span><span class="text">Pinterest</span></a>
-            <a class="share-qrsrc" data-sharer="qrsrc"><span class="icon"></span><span class="text">QRSrc.com</span></a>
-            <a class="share-e" data-sharer="email"><span class="icon"></span><span class="text">Email</span></a>
-        </div>
-    </div>
-</div>
-<link rel="stylesheet" href="./dist/css/share-button.1.0.1.min.css">
-<script src="./dist/js/share-button.1.0.1.min.js"></script>
+<link rel="stylesheet" href="./dist/css/share-button.1.0.3.min.css">
+<script src="./dist/js/share-button.1.0.3.min.js"></script>
 </body>
 </html>

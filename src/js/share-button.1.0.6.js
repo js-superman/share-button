@@ -9,7 +9,7 @@
     };
 
     var template = {
-        menu: '<div class="share-menu share-hide"><div class="share-shadow"></div><div class="share-closed"></div><div class="share-text"><div class="title">Share</div><p class="share-title"></p><p class="share-url"></p><div class="share-list"><a class="share-fb" data-sharer="facebook"><span class="icon"></span><span class="text">Facebook</span></a><a class="share-t" data-sharer="twitter"><span class="icon"></span><span class="text">Twitter</span></a><a class="share-reddit" data-sharer="reddit"><span class="icon"></span><span class="text">Reddit</span></a><a class="share-whatsapp" data-sharer="whatsapp"><span class="icon"></span><span class="text">WhatsApp</span></a><a class="share-vk" data-sharer="vk"><span class="icon"></span><span class="text">Vkontakte</span></a><a class="share-gmail" data-sharer="gmail"><span class="icon"></span><span class="text">Gmail</span></a><a class="share-googlebookmark" data-sharer="googlebookmark"><span class="icon"></span><span class="text">Google Bookmark</span></a><a class="share-e" data-sharer="email"><span class="icon"></span><span class="text">Email App</span></a><a class="share-adfty" data-sharer="adfty"><span class="icon"></span><span class="text">Adfty</span></a><a class="share-linkedin" data-sharer="linkedin"><span class="icon"></span><span class="text">LinkedIn</span></a><a class="share-print" data-sharer="print"><span class="icon"></span><span class="text">Print</span></a><a class="share-pinterest" data-sharer="pinterest"><span class="icon"></span><span class="text">Pinterest</span></a><a class="share-messenger" data-sharer="messenger"><span class="icon"></span><span class="text">Messenger</span></a><a class="share-sinaweibo" data-sharer="sinaweibo"><span class="icon"></span><span class="text">Sina Weibo</span></a><a class="share-blogger" data-sharer="blogger"><span class="icon"></span><span class="text">Blogger</span></a><a class="share-100zakladok" data-sharer="_100zakladok"><span class="icon"></span><span class="text">100zakladok</span></a><a class="share-amazon" data-sharer="amazon"><span class="icon"></span><span class="text">Amazon</span></a><a class="share-telegram" data-sharer="telegram"><span class="icon"></span><span class="text">Telegram</span></a><a class="share-myspace" data-sharer="myspace"><span class="icon"></span><span class="text">Myspace</span></a><a class="share-line" data-sharer="line"><span class="icon"></span><span class="text">LINE</span></a><a class="share-viber" data-sharer="viber"><span class="icon"></span><span class="text">Viber</span></a><a class="share-odnoklassniki" data-sharer="odnoklassniki"><span class="icon"></span><span class="text">Odnoklassniki</span></a><a class="share-qrsrc" data-sharer="qrsrc"><span class="icon"></span><span class="text">QRSrc.com</span></a></div></div></div>'
+        menu: '<div class="share-menu"><div class="share-shadow"></div><div class="share-closed"></div><div class="share-text"><div class="title">Share</div><p class="share-title"></p><p class="share-url"></p><div class="share-list"><a class="share-fb" data-sharer="facebook"><span class="icon"></span><span class="text">Facebook</span></a><a class="share-t" data-sharer="twitter"><span class="icon"></span><span class="text">Twitter</span></a><a class="share-reddit" data-sharer="reddit"><span class="icon"></span><span class="text">Reddit</span></a><a class="share-whatsapp" data-sharer="whatsapp"><span class="icon"></span><span class="text">WhatsApp</span></a><a class="share-vk" data-sharer="vk"><span class="icon"></span><span class="text">Vkontakte</span></a><a class="share-gmail" data-sharer="gmail"><span class="icon"></span><span class="text">Gmail</span></a><a class="share-googlebookmark" data-sharer="googlebookmark"><span class="icon"></span><span class="text">Google Bookmark</span></a><a class="share-e" data-sharer="email"><span class="icon"></span><span class="text">Email App</span></a><a class="share-adfty" data-sharer="adfty"><span class="icon"></span><span class="text">Adfty</span></a><a class="share-linkedin" data-sharer="linkedin"><span class="icon"></span><span class="text">LinkedIn</span></a><a class="share-print" data-sharer="print"><span class="icon"></span><span class="text">Print</span></a><a class="share-pinterest" data-sharer="pinterest"><span class="icon"></span><span class="text">Pinterest</span></a><a class="share-messenger" data-sharer="messenger"><span class="icon"></span><span class="text">Messenger</span></a><a class="share-sinaweibo" data-sharer="sinaweibo"><span class="icon"></span><span class="text">Sina Weibo</span></a><a class="share-blogger" data-sharer="blogger"><span class="icon"></span><span class="text">Blogger</span></a><a class="share-100zakladok" data-sharer="_100zakladok"><span class="icon"></span><span class="text">100zakladok</span></a><a class="share-amazon" data-sharer="amazon"><span class="icon"></span><span class="text">Amazon</span></a><a class="share-telegram" data-sharer="telegram"><span class="icon"></span><span class="text">Telegram</span></a><a class="share-myspace" data-sharer="myspace"><span class="icon"></span><span class="text">Myspace</span></a><a class="share-line" data-sharer="line"><span class="icon"></span><span class="text">LINE</span></a><a class="share-viber" data-sharer="viber"><span class="icon"></span><span class="text">Viber</span></a><a class="share-odnoklassniki" data-sharer="odnoklassniki"><span class="icon"></span><span class="text">Odnoklassniki</span></a><a class="share-qrsrc" data-sharer="qrsrc"><span class="icon"></span><span class="text">QRSrc.com</span></a></div></div></div>'
     };
 
     // instance methods
@@ -251,13 +251,25 @@
     };
 
     function toggleMenu() {
+        if (!toggleMenu.once) {
+            toggleMenu.once = true;
+            var c = document.createElement('div');
+            c.innerHTML = template.menu;
+            document.body.appendChild(c.firstChild);
+            document.querySelector('.share-title').innerText = getTitle();
+            document.querySelector('.share-url').innerText = getUrl();
+            document.querySelector('.share-menu').addEventListener('click', function (elem) {
+                toggleMenu();
+            });
+            addListenerSharer('.share-menu [data-sharer]');
+        }
         document.querySelector('.share-menu').classList.toggle('show');
         document.getElementsByTagName('html')[0].classList.toggle('share-noscroll');
         document.getElementsByTagName('body')[0].classList.toggle('share-noscroll');
     }
 
-    function addListener() {
-        var elems = document.querySelectorAll('[data-sharer]'),
+    function addListenerSharer(selector){
+        var elems = document.querySelectorAll(selector),
             i,
             l = elems.length;
         for (i = 0; i < l; i++) {
@@ -267,15 +279,16 @@
                 sharer.share();
             });
         }
+    }
+
+    function addListener() {
+        addListenerSharer('[data-sharer]');
         var elems_more = document.querySelectorAll('.share-more'), l_more = elems_more.length;
-        for (i = 0; i < l_more; i++) {
+        for (var i = 0; i < l_more; i++) {
             elems_more[i].addEventListener('click', function (elem) {
                 toggleMenu();
             });
         }
-        document.querySelector('.share-menu').addEventListener('click', function (elem) {
-            toggleMenu();
-        });
 
         var share_mob_elem = document.querySelector('.share-mob');
         if (share_mob_elem) {
@@ -323,11 +336,6 @@
         var share_fixed = document.querySelector('.share-fixed');
         var share_toolbox = document.querySelector('.share_button_toolbox');
         if (share_fixed || share_toolbox) {
-            var c = document.createElement('div');
-            c.innerHTML = template.menu;
-            document.body.appendChild(c.firstChild);
-            document.querySelector('.share-title').innerText = getTitle();
-            document.querySelector('.share-url').innerText = getUrl();
             addListener();
         }
         var share_hide = document.querySelectorAll('.share-hide'), l_hide = share_hide.length;

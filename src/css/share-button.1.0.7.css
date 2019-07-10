@@ -80,7 +80,7 @@ html.share-noscroll{overflow-y: hidden;}
 .share-line .icon {background-color: rgb(0, 195, 0);background-image: url(../img/Line.svg);}
 .share-viber .icon {background-color: rgb(123, 81, 157);background-image: url(../img/Viber.svg);}
 .share-odnoklassniki .icon {background-color: rgb(213, 120, 25);background-image: url(../img/Odnoklassniki.svg);}
-.share-qrsrc .icon {background-color: #4a8bf6;background-image: url(../img/Qrsrc.svg);background-size: 80%;}
+.share-qrcode .icon {background-color: #4a8bf6;background-image: url(../img/Qrsrc.svg);background-size: 80%;}
 
 .share-more .icon {background-color: rgb(255, 101, 80);background-image: url(../img/share-more-icon.svg);background-size: 32px 32px;}
 .share-web [data-sharer] .icon{background-size: 32px 32px;}

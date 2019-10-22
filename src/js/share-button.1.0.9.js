@@ -197,7 +197,8 @@
                         shareUrl: 'https://awesome.top/tools/qrcode',
                         params: {
                             url: this.getAttribute('url')
-                        }
+                        },
+                        open_url: true
                     }
                 },
                 s = sharers[sharer];
@@ -224,8 +225,16 @@
                 }
             }
             sharer.shareUrl += str;
-
-            if (!sharer.isLink) {
+            if(sharer.open_url){
+                var e = document.createEvent('MouseEvents');
+                e.initEvent('click', true, true);
+                var linkTmp = document.createElement("a");
+                linkTmp.href = sharer.shareUrl;
+                linkTmp.target = "_blank";
+                linkTmp.dispatchEvent(e);
+            }else if (sharer.isLink) {
+                window.location.href = sharer.shareUrl;
+            } else {
                 var popWidth = sharer.width || 600,
                     popHeight = sharer.height || 480,
                     left = window.innerWidth / 2 - popWidth / 2 + window.screenX,
@@ -244,8 +253,6 @@
                 if (window.focus) {
                     newWindow.focus();
                 }
-            } else {
-                window.location.href = sharer.shareUrl;
             }
         }
     };

@@ -194,7 +194,7 @@
                         }
                     },
                     qrcode: {
-                        shareUrl: 'https://apptools.io/qrcode',
+                        shareUrl: 'https://awesome.top/tools/qrcode',
                         params: {
                             url: this.getAttribute('url')
                         }
